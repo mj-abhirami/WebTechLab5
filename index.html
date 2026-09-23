@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Portfolio </title>
+    <link rel="icon" href="free_icon.png"> <!--to display icon in title-->
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        line-height: 1.6;
+    }
+
+    div {
+        margin: 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    #section1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        background-image: url("paper.gif"), url("avatar_icon.png");
+        background-position: center, right bottom;
+        background-repeat: repeat, no-repeat;
+        padding: 30px;
+    }
+
+    .intro {
+        flex: 1;
+        padding-right: 20px;
+    }
+
+    .profile {
+        max-width: 200px;
+        width: 100%;
+        border-radius: 50%;
+        display: block;
+        margin: auto;
+    }
+
+    nav {
+        background: #222;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+
+    nav li {
+        padding: 15px 20px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    nav li:hover {
+        background: darkblue;
+    }
+
+    #section3 ul {
+        margin-left: 40px;
+    }
+
+    .projects {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        flex: 1;
+        min-width: 250px;
+        background: #dbe9ff;
+        padding: 20px;
+        border-radius: 15px 50px 30px 5px;
+        border: 15px solid transparent;
+        border-image: url(border.png) 30 round;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* EXP 4 - 6. ADJACENT SIBLING SELECTOR */
+
+    .itemImg {
+        width: 80px;
+        display: none;
+        margin: 10px auto;
+    }
+
+    .itemName:hover+.itemImg {
+        display: block;
+    }
+
+    #section7 {
+        width: 100%;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+    }
+
+    /* EXP 4 - 5. PSEUDO-CLASSES */
+
+    input:focus {
+        border: 3px solid red;
+        background-color: #e9ffe9;
+    }
+
+    input:required {
+        border: 3px solid blue;
+        background-color: lightyellow;
+    }
+
+    input[type="email"]:invalid {
+        color: red;
+    }
+
+    input[type="email"]:valid {
+        color: blue;
+    }
+
+    input[type=submit],
+    input[type=reset] {
+        background: darkblue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    input[type=submit]:hover,
+    input[type=reset]:hover {
+        background: #003366;
+    }
+
+    #section8 {
+        text-align: center;
+    }
+
+    #section8 a {
+        display: inline-block;
+        background: darkblue;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    .back {
+        text-align: center;
+    }
+
+    #top {
+        display: inline-block;
+        margin: 20px;
+        padding: 10px 20px;
+        background: darkblue;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    /* Tablet */
+    @media(max-width:992px) {
+        nav ul {
+            flex-wrap: wrap;
+        }
+
+        .projects {
+            justify-content: center;
+        }
+    }
+
+    /* Mobile */
+    @media(max-width:768px) {
+        #section1 {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        nav ul {
+            flex-direction: column;
+        }
+
+        .projects {
+            flex-direction: column;
+        }
+
+        div {
+            margin: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+    }
+
+    /* Small Mobile */
+    @media(max-width:480px) {
+        h1 {
+            font-size: 22px;
+        }
+
+        .profile {
+            max-width: 150px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+        }
+    }
+
+    #section5 {
+        background-image: url(img_flwr.gif);
+        background-size: 100px 80px;
+        background-repeat: no-repeat;
+        background-position: right bottom;
+    }
+
+    /* EXP 4 - 7. NTH-CHILD */
+    .tech-section {
+        flex-basis: 100%;
+        margin-top: 20px;
+    }
+
+    .tech-section h3 {
+        text-align: left;
+    }
+
+    .tech-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .tech-table th,
+    .tech-table td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .tech-table tr:nth-child(even) {
+        background-color: #dbe9ff;
+    }
+
+    .tech-table tr:nth-child(odd) {
+        background-color: #f5f9ff;
+    }
+</style>
+
+<body>
+    <header id="section1">
+        <div class="intro">
+            <h1 id="portfolioTitle">Freelancer Portfolio - ABHIRAMI M J</h1>
+            <h3>Aspiring Web Developer</h3>
+            <p>
+                Building clean, responsive, and user-friendly websites.
+            </p>
+        </div>
+        <br>
+        <a href="https://www.linkedin.com/in/abhirami-mj/"><img src="avatar_icon.png" alt="LinkedIn Profile"
+                class="profile"></a> <!--Clickable Image Link-->
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#section1">Home</a></li>
+            <li><a href="#section2">About</a></li>
+            <li><a href="#section3">Skills</a></li>
+            <li><a href="#section4">Projects</a></li>
+            <li><a href="#section8">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="section2">
+        <h2>About Me</h2>
+        <p>
+            I am currently pursuing <strong>B.Tech in Computer Science and Engineering</strong> and studying
+            5<sup>th</sup> semester in <strong>Karunya Institute of Technology and Sciences</strong>.
+            My goal is to become a <i>Web Developer</i>. I am a <i>freelance web developer</i> passionate about
+            designing responsive websites and continuously improving my programming, SQL, Excel, Python,
+            and web development skills through projects and online courses.
+        </p>
+    </div>
+
+    <div id="section3">
+        <h2>Skills</h2>
+        <ul> <!--Unordered Nested List-->
+            <li>Technical Skills
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>Excel</li>
+
+                </ul>
+            </li>
+            <li>Soft Skills
+                <ul>
+                    <li>Communication</li>
+                    <li>Teamwork</li>
+                    <li>Problem Solving</li>
+                    <li>Time Management</li>
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="section4">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="card">
+                <h3 class="itemName">Student Result System</h3>
+                <img class="itemImg" src="student_result.png" alt="Student Result System">
+                <p>Calculates student grades</p>
+                <h4>Python</h4>
+            </div>
+            <div class="card">
+                <h3>Personal Portfolio</h3>
+                <p>Responsive portfolio website.</p>
+                <h4>HTML5 & CSS3</h4>
+            </div>
+            <div class="card">
+                <h3>Calculator</h3>
+                <p>Simple calculator application.</p>
+                <h4>HTML</h4>
+            </div>
+            <div class="tech-table">
+                <h3>Project Technologies</h3>
+
+                <table class="tech-table">
+                    <tr>
+                        <th>Project</th>
+                        <th>Technology</th>
+                    </tr>
+
+                    <tr>
+                        <td>Student Result System</td>
+                        <td>Python</td>
+                    </tr>
+
+                    <tr>
+                        <td>Personal Portfolio</td>
+                        <td>HTML5 & CSS3</td>
+                    </tr>
+
+                    <tr>
+                        <td>Calculator</td>
+                        <td>HTML</td>
+                    </tr>
+
+                    <tr>
+                        <td>Future Project</td>
+                        <td>JavaScript</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <button type="button" id="randomBtn">Suggest a Project</button>
+        <p id="randomResult"></p>
+    </div>
+
+    <div id="section5">
+        <h2>Services</h2>
+        <dl> <!--Description List-->
+            <dt><strong>Web Design</strong></dt>
+            <dd>Creating simple responsive websites.</dd>
+            <dt><strong>Data Analysis</strong></dt>
+            <dd>Analyzing datasets using Excel and Python.</dd>
+            <dt><strong>Content Writing</strong></dt>
+            <dd>Creating technical documentation.</dd>
+        </dl>
+    </div>
+
+    <div id="section6">
+        <h2>Learning Journey</h2>
+        <ol> <!--Ordered Nested List-->
+            <li>Programming
+                <ul type="circle">
+                    <li>Python</li>
+                    <li>Java</li>
+                </ul>
+            </li>
+            <li>Data Analytics
+                <ul>
+                    <li>Excel</li>
+                    <li>SQL</li>
+                </ul>
+            </li>
+            <li>Web Development
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div id="section7">
+        <h2>Hire Me</h2>
+        <form>
+            <label for="name"><b>Full Name</b></label> <!--Text-->
+            <input type="text" id="name" placeholder="Enter your full name" required>
+            <p id="nameMessage"></p>
+            <br>
+
+            <label for="email"><b>Email</b></label> <!--Email-->
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <p id="emailMessage"></p>
+            <p id="emailTypingMessage"></p>
+            <br>
+
+            <label for="pass"><b>Password</b></label> <!--Password-->
+            <input type="password" id="pass" placeholder="Enter your password" required>
+            <br>
+
+            <label for="age"><b>Age</b></label> <!--Number-->
+            <input type="number" id="age" placeholder="Enter your age" min="18" max="60" required>
+            <br>
+
+            <label for="budget"><b>Project Budget</b></label> <!--Number-->
+            <input type="number" id="budget" min="10000" placeholder="Enter your budget (Min ₹10000)" size="30"
+                required>
+            <p id="budgetFocusMessage"></p>
+            <p id="budgetMessage"></p>
+            <button type="button" id="analyzeBtn">Analyze Budget</button>
+            <p id="budgetResult"></p>
+            <br>
+
+            <label for="start"><b>Project Start Date</b></label> <!--Date-->
+            <input type="date" id="start" required>
+            <br>
+
+            <label for="gender"><b>Gender</b></label> <!--Radio Buttons-->
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+            <p id="genderResult"></p>
+            <br>
+
+            <label><b>Services Required</b></label> <!--checkbox-->
+            <input type="checkbox" name="service" value="Web Design"> Web Design
+            <input type="checkbox" name="service" value="Web Development"> Web Development
+            <input type="checkbox" name="service" value="UI/UX Design"> UI/UX Design
+            <input type="checkbox" name="service" value="Search Engine Optimization"> Search Engine Optimization
+            <button type="button" id="serviceBtn">Count Services</button>
+            <p id="serviceResult"></p>
+            <br>
+
+            <label for="project"><b>Project Type</b></label> <!--DropBox-->
+            <select name="project" id="project" required>
+                <option value="">--Select Project Type--</option>
+                <option value="Portfolio Website">Portfolio Website</option>
+                <option value="Business Website">Business Website</option>
+                <option value="E-commerce Website">E-commerce Website</option>
+                <option value="Blog Website">Blog Website</option>
+                <option value="Other">Other</option>
+            </select>
+            <p id="projectMessage"></p>
+            <br>
+
+            <label for="description"><b>Project Description</b></label> <!--TextArea-->
+            <textarea id="description" rows="5" cols="30" placeholder="Describe your project...." required></textarea>
+            <p id="focusMessage"></p>
+            <button type="button" id="descriptionBtn">Analyze Description</button>
+            <p id="descriptionResult"></p>
+            <p id="wordCountResult"></p>
+            <p id="characterResult"></p>
+            <br>
+
+            <label for="color"><b>Preferred Theme Color</b></label> <!--Color Picker-->
+            <input type="color" id="color">
+            <p id="colorResult"></p>
+            <br>
+
+            <label for="file"><b>Upload Project Requirements</b></label> <!--File Upload-->
+            <input type="file" id="file" required>
+            <br><br>
+
+            <label for="urgency"><b>Project Urgency</b></label> <!--Range Slider-->
+            Low
+            <input type="range" id="urgency" min="1" max="10" value="5">
+            High
+            <p id="urgencyResult"></p>
+            <br><br>
+
+            <input type="submit" value="Submit"> <!--Submit Button-->
+            <input type="reset" value="Reset"> <!--Reset Button-->
+            <p id="formResult"></p>
+            <p id="resetMessage"></p>
+            <br>
+
+            <button type="button" id="countBtn">Show Form Statistics</button>
+            <p id="countResult"></p>
+
+            <button type="button" id="classBtn">Count Portfolio Cards</button>
+            <p id="classResult"></p>
+        </form>
+    </div>
+
+    <div id="section8">
+        <h2>Contact Me</h2> <!--Internal Link-->
+        <a href="mailto:abhiramim@karunya.edu.in">Email Me</a> <!--Email Link-->
+        <br><br>
+        <a href="tel:+918590412800">Call Me</a> <!--Phone Link-->
+        <br><br>
+        <a href="https://github.com/mj-abhirami">GitHub</a> <!--GitHub Link-->
+        <br><br>
+    </div>
+
+    <a href="#section1" id="top">Back to Top</a> <!--Bookmark Link-->
+
+    <footer>
+        <p>&copy; 2026 ABHIRAMI M J | Freelancer Portfolio</p>
+    </footer>
+    <script>
+        document.getElementById("section7").style.backgroundColor = "#f5f9ff"; // Set background color for the form section
+        document.getElementById("analyzeBtn").addEventListener("click", function () {
+            var budget = parseFloat(document.getElementById("budget").value);
+            if (budget < 25000) {
+                document.getElementById("budgetResult").innerHTML =
+                    "Budget Category: Basic Project";
+            }
+            else if (budget <= 50000) {
+                document.getElementById("budgetResult").innerHTML =
+                    "Budget Category: Standard Project";
+            }
+            else {
+                document.getElementById("budgetResult").innerHTML =
+                    "Budget Category: Premium Project";
+            }
+        })
+
+        // EXP 5 - LIVE BUDGET KEYUP EVENT
+        document.getElementById("budget").addEventListener("keyup", function () {
+            document.getElementById("budgetFocusMessage").innerHTML = "";
+            var budget = parseFloat(document.getElementById("budget").value);
+            if (budget < 25000) {
+                document.getElementById("budgetMessage").innerHTML =
+                    "Basic budget selected.";
+            }
+            else if (budget <= 50000) {
+                document.getElementById("budgetMessage").innerHTML =
+                    "Standard budget selected.";
+            }
+            else {
+                document.getElementById("budgetMessage").innerHTML =
+                    "Premium budget selected.";
+            }
+        });
+
+        // EXP 5 - ONCHANGE EVENT
+        document.getElementById("project").addEventListener("change", function () {
+            var projectType = document.getElementById("project").value;
+            if (projectType === "Portfolio Website") {
+                document.getElementById("projectMessage").innerHTML =
+                    "Great choice! A portfolio website can showcase your skills and projects.";
+            }
+            else if (projectType === "Business Website") {
+                document.getElementById("projectMessage").innerHTML =
+                    "A business website can help promote your services online.";
+            }
+            else if (projectType === "E-commerce Website") {
+                document.getElementById("projectMessage").innerHTML =
+                    "An e-commerce website can help you sell products online.";
+            }
+            else if (projectType === "Blog Website") {
+                document.getElementById("projectMessage").innerHTML =
+                    "A blog website is useful for publishing articles and content.";
+            }
+            else {
+                document.getElementById("projectMessage").innerHTML =
+                    "Let's discuss your project requirements.";
+            }
+        });
+
+        // EXP 5 - STRING AND ARRAY
+        document.getElementById("descriptionBtn").addEventListener("click", function () {
+            var text = document.getElementById("description").value;
+            var words = text.split(" ");
+            var shortest = words[0];
+            var longest = words[0];
+            for (var i = 0; i < words.length; i++) {
+                if (words[i].length < shortest.length) {
+                    shortest = words[i];
+                }
+                if (words[i].length > longest.length) {
+                    longest = words[i];
+                }
+            }
+            document.getElementById("descriptionResult").innerHTML =
+                "Shortest Word: " + shortest +
+                "<br>Longest Word: " + longest +
+                "<br>Total Words: " + words.length;
+        });
+
+        // EXP 5 - RANDOM PROJECT AND BUDGET
+        document.getElementById("randomBtn").addEventListener("click", function () {
+            var projects = [
+                "Student Result System",
+                "Personal Portfolio",
+                "Calculator"
+            ];
+            var budgets = [
+                15000,
+                30000,
+                50000,
+                75000
+            ];
+            var randomProject = Math.floor(Math.random() * projects.length);
+            var randomBudget = Math.floor(Math.random() * budgets.length);
+            document.getElementById("randomResult").innerHTML =
+                "Suggested Project: " + projects[randomProject] +
+                "<br>Suggested Budget: ₹" + budgets[randomBudget];
+        });
+
+        // EXP 5 - FORM SUBMIT EVENT
+        document.querySelector("#section7 form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var name = document.getElementById("name").value;
+            var project = document.getElementById("project").value;
+            var budget = parseFloat(document.getElementById("budget").value);
+            document.getElementById("formResult").innerHTML =
+                "Thank you, " + name + "!<br>" +
+                "Your " + project + " request with a budget of ₹" + budget + " has been received.";
+        });
+
+        // EXP 5 - getElementsByTagName
+        document.getElementById("countBtn").addEventListener("click", function () {
+            var inputs = document.getElementsByTagName("input");
+            document.getElementById("countResult").innerHTML =
+                "Total input elements in this webpage: " + inputs.length;
+        });
+
+        // EXP 5 - getElementsByClassName
+        document.getElementById("classBtn").addEventListener("click", function () {
+            var cards = document.getElementsByClassName("card");
+            document.getElementById("classResult").innerHTML =
+                "Number of portfolio cards: " + cards.length;
+        });
+
+        // EXP 5 - querySelectorAll
+        document.getElementById("serviceBtn").addEventListener("click", function () {
+            var services = document.querySelectorAll('input[name="service"]');
+            document.getElementById("serviceResult").innerHTML =
+                "Number of services available: " + services.length;
+        });
+
+        // EXP 5 - ONFOCUS EVENT
+        document.getElementById("description").addEventListener("focus", function () {
+            document.getElementById("focusMessage").innerHTML =
+                "You can describe your project requirements here.";
+        });
+
+        // EXP 5 - ONKEYUP EVENT
+        document.getElementById("name").addEventListener("keyup", function () {
+            var name = document.getElementById("name").value;
+            document.getElementById("nameMessage").innerHTML =
+                "Hello, " + name;
+        });
+
+        // EXP 5 - ONCHANGE EVENT FOR COLOR
+        document.getElementById("color").addEventListener("change", function () {
+            var selectedColor = document.getElementById("color").value;
+            document.getElementById("colorResult").innerHTML =
+                "Selected Color: " + selectedColor;
+        });
+
+        // EXP 5 - ONFOCUS EVENT FOR EMAIL
+        document.getElementById("email").addEventListener("focus", function () {
+            document.getElementById("emailMessage").innerHTML =
+                "Please enter a valid email address.";
+        });
+
+        // EXP 5 - LIVE WORD COUNT
+        document.getElementById("description").addEventListener("keyup", function () {
+            var text = document.getElementById("description").value;
+            var words = text.trim().split(/\s+/);
+            if (text.trim() === "") {
+                document.getElementById("wordCountResult").innerHTML =
+                    "Words Typed: 0";
+            } else {
+                document.getElementById("wordCountResult").innerHTML =
+                    "Words Typed: " + words.length;
+            }
+        });
+
+        // EXP 5 - CHARACTER COUNT
+        document.getElementById("description").addEventListener("keyup", function () {
+            var text = document.getElementById("description").value;
+            document.getElementById("characterResult").innerHTML =
+                "Characters Typed: " + text.length;
+        });
+
+        // EXP 5 - ONCHANGE EVENT FOR RANGE
+        document.getElementById("urgency").addEventListener("change", function () {
+            var urgency = document.getElementById("urgency").value;
+            document.getElementById("urgencyResult").innerHTML =
+                "Selected Urgency Level: " + urgency;
+        });
+
+        // EXP 5 - RESET CLICK EVENT
+        document.querySelector('input[type="reset"]').addEventListener("click", function () {
+            document.getElementById("resetMessage").innerHTML =
+                "Form has been reset successfully.";
+        });
+
+        // EXP 5 - ONFOCUS EVENT FOR BUDGET
+        document.getElementById("budget").addEventListener("focus", function () {
+            document.getElementById("budgetFocusMessage").innerHTML =
+                "Enter your estimated project budget in ₹.";
+        });
+
+        // EXP 5 - ONKEYUP EVENT FOR EMAIL
+        document.getElementById("email").addEventListener("keyup", function () {
+            var email = document.getElementById("email").value;
+            document.getElementById("emailTypingMessage").innerHTML =
+                "Email entered: " + email;
+        });
+
+        // EXP 5 - MOUSEOVER AND MOUSEOUT EVENT
+        document.getElementById("portfolioTitle").addEventListener("mouseover", function () {
+            this.innerHTML = "Welcome to My Portfolio!";
+        });
+        document.getElementById("portfolioTitle").addEventListener("mouseout", function () {
+            this.innerHTML = "Freelancer Portfolio - ABHIRAMI M J";
+        });
+
+        // EXP 5 - RADIO BUTTON CHANGE EVENT
+        var genderOptions = document.querySelectorAll('input[name="gender"]');
+        for (var i = 0; i < genderOptions.length; i++) {
+            genderOptions[i].addEventListener("change", function () {
+                document.getElementById("genderResult").innerHTML =
+                    "Selected Gender: " + this.value;
+            });
+        }
+    </script>
+</body>
+
+</html>
